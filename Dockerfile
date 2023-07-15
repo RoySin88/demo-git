@@ -8,7 +8,7 @@ RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|
 
 RUN yum -y install httpd
 
-COPY -r . /var/www/html/ 
+COPY . /var/www/html/ 
 
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
