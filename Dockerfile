@@ -1,8 +1,11 @@
-FROM ubuntu 
-RUN apt update 
-RUN apt install –y apache2 
-RUN apt install –y apache2-utils
-RUN apt clean 
+FROM centos:latest
+
+MAINTAINER DIGIKO
+
+RUN yum -y install httpd
+
 COPY /home/ubuntu/demo-git/* /var/www/html/ 
+
+CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
+
 EXPOSE 80
-CMD ["apache2ctl", "-D", "FOREGROUND"]
